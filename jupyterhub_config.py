@@ -24,9 +24,9 @@ c.KubeSpawner.singleuser_fs_gid = os.getuid()
 
 if os.environ.get('JUPYTERHUB_INTERFACE_TYPE') == 'lab':
     c.KubeSpawner.default_url = '/lab'
-    c.KubeSpawner.cmd = ['jupyter', 'labhub']
+    c.KubeSpawner.cmd = ['jupyter', 'lab']
 else:
-    c.KubeSpawner.cmd = ['jupyterhub-singleuser']
+    c.KubeSpawner.cmd = ['jupyter', 'notebook']
 
 c.KubeSpawner.args = ['--hub-api-url=http://%s:%d/hub/api' % (
         c.KubeSpawner.hub_connect_ip, c.KubeSpawner.hub_connect_port)]
